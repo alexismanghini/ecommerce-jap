@@ -8,6 +8,8 @@ const CART_INFO_URL = "https://japdevdep.github.io/ecommerce-api/cart/987.json";
 const CART_BUY_URL = "https://japdevdep.github.io/ecommerce-api/cart/buy.json";
 
 
+window.location.href = "login.html"
+
 var showSpinner = function(){
   document.getElementById("spinner-wrapper").style.display = "block";
 }

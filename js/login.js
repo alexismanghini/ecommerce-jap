@@ -13,4 +13,7 @@ var ingreso = function (user, pass) {
   }
 
 document.addEventListener("DOMContentLoaded", function (e) {
+    //if (localStorage.getItem("user") === null || localStorage.getItem("pass") === null){
+        //location.href = "login.html";
+    //}
 });
