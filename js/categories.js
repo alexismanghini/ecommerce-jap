@@ -41,12 +41,9 @@ function showCategoriesList(){
     for(let i = 0; i < currentCategoriesArray.length; i++){
         let category = currentCategoriesArray[i];
 
-        if (((minCount == undefined) || (minCount != undefined && parseInt(category.productCount) >= minCount)) &&
-            ((maxCount == undefined) || (maxCount != undefined && parseInt(category.productCount) <= maxCount))){
-
             htmlContentToAppend += `
             <a href="category-info.html" class="list-group-item list-group-item-action">
-                <div class="row">
+                <div class="">
                     <div class="col-3">
                         <img src="` + category.imgSrc + `" alt="` + category.description + `" class="img-thumbnail">
                     </div>
@@ -60,7 +57,6 @@ function showCategoriesList(){
                 </div>
             </a>
             `
-        }
 
         document.getElementById("cat-list-container").innerHTML = htmlContentToAppend;
     }
