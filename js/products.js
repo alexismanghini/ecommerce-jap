@@ -1,12 +1,12 @@
 var CurrentProductsArray = [];
 
-function showProductsList() {
+function showProductsList(CurrentProductsArray) {
 
     let htmlContentToAppend = "";
-    for (let i = 0; i < currentProductsArray.length; i++) {
-        let product = currentProductsArray[i];
+    for (let i = 0; i < CurrentProductsArray.length; i++) {
+        let product = CurrentProductsArray[i];
 
-        JSON.parse(CurrentProductsArray);
+
 
         htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
@@ -24,9 +24,11 @@ function showProductsList() {
                 </div>
             </a>
             `
+        
     }
+    document.getElementById("products").innerHTML = htmlContentToAppend;
 
-    document.getElementById("container p-5").innerHTML = htmlContentToAppend;
+
 }
 
 
@@ -34,10 +36,13 @@ function showProductsList() {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
-    getJSONData(PRODUCTS_URL).then(function (response) {
-        if (response.status === "ok") {
+    getJSONData(PRODUCTS_URL).then(function (responseProd) {
+        if (responseProd.status === "ok") {
+            CurrentProductsArray = responseProd.data;
+
+            showProductsList(CurrentProductsArray);
         }
-        showProductsList();
+
     })
 }
 
