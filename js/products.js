@@ -1,5 +1,9 @@
 var CurrentProductsArray = [];
 
+function ProductFilter(minimun,maximun){
+    
+}
+
 function SortProductsbyPrize(CurrentProductsArray,criteria) {
     if (criteria === a < b){
         
