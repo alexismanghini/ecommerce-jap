@@ -1,5 +1,11 @@
 var CurrentProductsArray = [];
 
+function SortProductsbyPrize(CurrentProductsArray,criteria) {
+    if (criteria === a < b){
+        
+    }
+}
+
 function showProductsList(CurrentProductsArray) {
 
     let htmlContentToAppend = "";
