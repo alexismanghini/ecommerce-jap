@@ -1,12 +1,14 @@
 var CurrentProductsArray = [];
+var MinProducto = undefined;
+var MaxProducto = undefined;
 
-function ProductFilter(minimun,maximun){
-    
+function ProductFilter(minimun, maximun) {
+
 }
 
-function SortProductsbyPrize(CurrentProductsArray,criteria) {
-    if (criteria === a < b){
-        
+function SortProductsbyPrize(CurrentProductsArray, criteria) {
+    if (criteria === a < b) {
+
     }
 }
 
@@ -34,7 +36,7 @@ function showProductsList(CurrentProductsArray) {
                 </div>
             </a>
             `
-        
+
     }
     document.getElementById("products").innerHTML = htmlContentToAppend;
 
@@ -54,6 +56,20 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
 
     })
+    document.getElementById("LimpiarBtn").addEventListener("click", function () {
+        document.getElementById("prodMinPrecio").value = "";
+        document.getElementById("prodMaxPrecio").value = "";
+
+        MinProducto = undefined;
+        MaxProducto = undefined;
+
+        showProductsList();
+    })
+
+    document.getElementById("FiltratBtn").addEventListener("click", function(){
+        
+    })
+
 }
 
 
