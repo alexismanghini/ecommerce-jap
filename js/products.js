@@ -2,14 +2,19 @@ var CurrentProductsArray = [];
 var MinProducto = undefined;
 var MaxProducto = undefined;
 
+function FilterProducts(){
+    if ((MinProducto != undefined) || (MaxProducto != undefined)) {
+    CurrentProductsArray.filter(product => product.cost >= MinProducto && product.cost <= MaxProducto)}
+        
+}
 
-//var ProductFilter = product.filter(product => product.cost >= MinProducto && product.cost <= MaxProducto)
 
-function showProductsList(CurrentProductsArray) {
+function showProductsList() {
 
     let htmlContentToAppend = "";
     for (let i = 0; i < CurrentProductsArray.length; i++) {
         let product = CurrentProductsArray[i];
+
 
         htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
@@ -76,8 +81,20 @@ document.addEventListener("DOMContentLoaded", function (e) {
             MaxProducto = undefined;
         }
 
-        showProductsList();
+    })
 
+    document.getElementsByTagName("vendidos").addEventListener("click",function(){
+        CurrentProductsArray.sort((a,b) => {
+            if (a.SoldCount > b.SoldCount){
+                return 1;
+                }
+                if (a.SoldCount < b.soldCount){
+                    return -1;
+                }
+                else{
+                    return 0;
+                }
+           })
     })
 
 }
