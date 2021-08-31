@@ -2,23 +2,14 @@ var CurrentProductsArray = [];
 var MinProducto = undefined;
 var MaxProducto = undefined;
 
-function ProductFilter(minimun, maximun) {
 
-}
-
-function SortProductsbyPrize(CurrentProductsArray, criteria) {
-    if (criteria === a < b) {
-
-    }
-}
+//var ProductFilter = product.filter(product => product.cost >= MinProducto && product.cost <= MaxProducto)
 
 function showProductsList(CurrentProductsArray) {
 
     let htmlContentToAppend = "";
     for (let i = 0; i < CurrentProductsArray.length; i++) {
         let product = CurrentProductsArray[i];
-
-
 
         htmlContentToAppend += `
             <a href="product-info.html" class="list-group-item list-group-item-action">
@@ -39,7 +30,6 @@ function showProductsList(CurrentProductsArray) {
 
     }
     document.getElementById("products").innerHTML = htmlContentToAppend;
-
 
 }
 
@@ -66,8 +56,28 @@ document.addEventListener("DOMContentLoaded", function (e) {
         showProductsList();
     })
 
-    document.getElementById("FiltratBtn").addEventListener("click", function(){
-        
+    document.getElementById("FiltrarBtn").addEventListener("click", function () {
+
+        MinProducto = document.getElementById("prodMinPrecio").value;
+        MaxProducto = document.getElementById("prodMinPrecio").value;
+
+
+        if ((MinProducto != undefined) && (MinProducto != "")) {
+            MinProducto = parseInt(MinProducto);
+        }
+        else {
+            MinProducto = undefined;
+        }
+
+        if ((MaxProducto != undefined) && (MaxProducto != "")) {
+            MaxProducto = parseInt(MaxProducto);
+        }
+        else {
+            MaxProducto = undefined;
+        }
+
+        showProductsList();
+
     })
 
 }

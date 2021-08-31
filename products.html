@@ -31,11 +31,11 @@
   </div>
   <div class="col text-right">
     <label>Entre:</label>
-    <input type="number" placeholder="Precio mín" id="prodMinPrecio">
-    <input type="number" placeholder="Precio máx" id="prodMaxPrecio">
+    <input type="number" placeholder="Precio mín" id="prodMinPrecio" min="0">
+    <input type="number" placeholder="Precio máx" id="prodMaxPrecio" min="0">
     <input type="button"  id="FiltrarBtn" name= "filtrar" value="Filtrar">
     <input type="button"  id="LimpiarBtn" name= "limpiar" value="Limpiar">
-    <input type="radio" name="baratos" value="1">
+    <input type="radio" name="baratos" value="1" checked>
     <label>Más Baratos</label>
     <input type="radio" name="baratos" value="2">
     <label>Más Caros</label>
