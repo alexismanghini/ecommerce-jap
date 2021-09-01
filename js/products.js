@@ -2,10 +2,11 @@ var CurrentProductsArray = [];
 var MinProducto = undefined;
 var MaxProducto = undefined;
 
-function FilterProducts(){
-    if ((MinProducto != undefined) || (MaxProducto != undefined)) {
-    CurrentProductsArray.filter(product => product.cost >= MinProducto && product.cost <= MaxProducto)}
-        
+function FilterProducts(array) {
+    if ((MinProducto != undefined) && (MaxProducto != undefined)) {
+        array.filter(product => product.cost >= MinProducto && product.cost <= MaxProducto)
+    }
+
 }
 
 
@@ -14,6 +15,7 @@ function showProductsList() {
     let htmlContentToAppend = "";
     for (let i = 0; i < CurrentProductsArray.length; i++) {
         let product = CurrentProductsArray[i];
+
 
 
         htmlContentToAppend += `
@@ -32,17 +34,15 @@ function showProductsList() {
                 </div>
             </a>
             `
-
     }
     document.getElementById("products").innerHTML = htmlContentToAppend;
-
 }
 
 
 //Función que se ejecuta una vez que se haya lanzado el evento de
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
-document.addEventListener("DOMContentLoaded", function (e) {
+document.addEventListener("DOMContentLoaded", function () {
     getJSONData(PRODUCTS_URL).then(function (responseProd) {
         if (responseProd.status === "ok") {
             CurrentProductsArray = responseProd.data;
@@ -81,21 +81,23 @@ document.addEventListener("DOMContentLoaded", function (e) {
             MaxProducto = undefined;
         }
 
+        showProductsList();
+
     })
 
-    document.getElementsByTagName("vendidos").addEventListener("click",function(){
-        CurrentProductsArray.sort((a,b) => {
-            if (a.SoldCount > b.SoldCount){
-                return 1;
-                }
-                if (a.SoldCount < b.soldCount){
-                    return -1;
-                }
-                else{
-                    return 0;
-                }
-           })
-    })
+    //document.getElementById("masvendidos").addEventListener("click", function () {
+        //array.sort((a, b) => {
+            //if (a.SoldCount > b.SoldCount) {
+                //return 1;
+            //}
+            //if (a.SoldCount < b.soldCount) {
+                //return -1;
+            //}
+            //else {
+                //return 0;
+            //}
+        //})
+    //})
 
 }
 
