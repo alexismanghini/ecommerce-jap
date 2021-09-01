@@ -2,9 +2,24 @@ var CurrentProductsArray = [];
 var MinProducto = undefined;
 var MaxProducto = undefined;
 
-function FilterProducts(array) {
+const MasVendidos = () => (CurrentProductsArray).sort((a, b) => {
+    if (a.SoldCount > b.SoldCount) {
+        return 1;
+    }
+    else if (a.SoldCount < b.soldCount) {
+        return -1;
+    }
+    else {
+        return 0;
+    }
+})
+
+
+
+
+const FilterProducts = (CurrentProductsArray)  => {
     if ((MinProducto != undefined) && (MaxProducto != undefined)) {
-        array.filter(product => product.cost >= MinProducto && product.cost <= MaxProducto)
+        CurrentProductsArray.filter(product => product.cost >= MinProducto && product.cost <= MaxProducto);
     }
 
 }
@@ -15,7 +30,6 @@ function showProductsList() {
     let htmlContentToAppend = "";
     for (let i = 0; i < CurrentProductsArray.length; i++) {
         let product = CurrentProductsArray[i];
-
 
 
         htmlContentToAppend += `
@@ -47,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (responseProd.status === "ok") {
             CurrentProductsArray = responseProd.data;
 
-            showProductsList(CurrentProductsArray);
+            showProductsList();
         }
 
     })
@@ -67,14 +81,14 @@ document.addEventListener("DOMContentLoaded", function () {
         MaxProducto = document.getElementById("prodMinPrecio").value;
 
 
-        if ((MinProducto != undefined) && (MinProducto != "")) {
+        if ((MinProducto = undefined) && (MinProducto != "")) {
             MinProducto = parseInt(MinProducto);
         }
         else {
             MinProducto = undefined;
         }
 
-        if ((MaxProducto != undefined) && (MaxProducto != "")) {
+        if ((MaxProducto = undefined) && (MaxProducto != "")) {
             MaxProducto = parseInt(MaxProducto);
         }
         else {
@@ -85,19 +99,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     })
 
-    //document.getElementById("masvendidos").addEventListener("click", function () {
-        //array.sort((a, b) => {
-            //if (a.SoldCount > b.SoldCount) {
-                //return 1;
-            //}
-            //if (a.SoldCount < b.soldCount) {
-                //return -1;
-            //}
-            //else {
-                //return 0;
-            //}
-        //})
-    //})
+    document.getElementById("masvendidos").addEventListener("click", function () {
+        MasVendidos();
+        alert("masvendidos");
+
+    })
 
 }
 
