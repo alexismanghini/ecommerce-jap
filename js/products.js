@@ -3,10 +3,10 @@ var MinProducto = undefined;
 var MaxProducto = undefined;
 
 const MasVendidos = (ArrayProductos) => ArrayProductos.sort((a, b) => {
-    if (a.soldCount > b.soldCount) {
+    if (a.soldCount < b.soldCount) {
         return 1;
     }
-    else if (a.soldCount < b.soldCount) {
+    else if (a.soldCount > b.soldCount) {
         return -1;
     }
     else {
