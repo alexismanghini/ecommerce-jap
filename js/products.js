@@ -14,13 +14,22 @@ const MasVendidos = (ArrayProductos) => ArrayProductos.sort((a, b) => {
     }
 })
 
+const FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => (product.cost >= MinProducto && product.cost <= MaxProducto));
+
+if (MaxProducto === undefined && MinProducto !== undefined) {
+    let FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => product.cost >= MinProducto)
+};
+if (MinProducto === undefined && MaxProducto !== undefined) {
+    let FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => product.cost <= MaxProducto)
+};
 
 
-function showProductsList() {
+
+function showProductsList(ArrayProductos) {
 
     let htmlContentToAppend = "";
-    for (let i = 0; i < CurrentProductsArray.length; i++) {
-        let product = CurrentProductsArray[i];
+    for (let i = 0; i < ArrayProductos.length; i++) {
+        let product = ArrayProductos[i];
 
 
         htmlContentToAppend += `
@@ -52,7 +61,7 @@ document.addEventListener("DOMContentLoaded", function () {
         if (responseProd.status === "ok") {
             CurrentProductsArray = responseProd.data;
 
-            showProductsList();
+            showProductsList(CurrentProductsArray);
         }
 
     })
@@ -63,10 +72,11 @@ document.addEventListener("DOMContentLoaded", function () {
         MinProducto = undefined;
         MaxProducto = undefined;
 
-        
+        showProductsList(CurrentProductsArray);
+
+
     })
 
-    console.log(showProductsList(CurrentProductsArray));
 
     document.getElementById("FiltrarBtn").addEventListener("click", function () {
 
@@ -74,27 +84,27 @@ document.addEventListener("DOMContentLoaded", function () {
         MaxProducto = document.getElementById("prodMinPrecio").value;
 
 
-        if ((MinProducto = undefined) && (MinProducto != "")) {
-            MinProducto = parseInt(MinProducto);
+        if ((MinProducto == undefined) && (MinProducto != "")) {
+            MinProducto == parseInt(MinProducto);
         }
         else {
-            MinProducto = undefined;
+            MinProducto == undefined;
         }
 
-        if ((MaxProducto = undefined) && (MaxProducto != "")) {
-            MaxProducto = parseInt(MaxProducto);
+        if ((MaxProducto == undefined) && (MaxProducto != "")) {
+            MaxProducto == parseInt(MaxProducto);
         }
         else {
-            MaxProducto = undefined;
+            MaxProducto == undefined;
         }
-
+        showProductsList(FilterProducts);
 
     })
 
     document.getElementById("masvendidos").addEventListener("click", function () {
-        
+
         MasVendidos(CurrentProductsArray);
-        showProductsList();
+        showProductsList(CurrentProductsArray);
 
     })
 
