@@ -2,11 +2,11 @@ var CurrentProductsArray = [];
 var MinProducto = undefined;
 var MaxProducto = undefined;
 
-const MasVendidos = () => (CurrentProductsArray).sort((a, b) => {
-    if (a.SoldCount > b.SoldCount) {
+const MasVendidos = (ArrayProductos) => ArrayProductos.sort((a, b) => {
+    if (a.soldCount > b.soldCount) {
         return 1;
     }
-    else if (a.SoldCount < b.soldCount) {
+    else if (a.soldCount < b.soldCount) {
         return -1;
     }
     else {
@@ -63,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
         MinProducto = undefined;
         MaxProducto = undefined;
 
-        showProductsList();
+        
     })
 
     console.log(showProductsList(CurrentProductsArray));
@@ -88,18 +88,15 @@ document.addEventListener("DOMContentLoaded", function () {
             MaxProducto = undefined;
         }
 
-        showProductsList();
 
     })
 
     document.getElementById("masvendidos").addEventListener("click", function () {
         
-        MasVendidos();
-        alert("masvendidos");
+        MasVendidos(CurrentProductsArray);
+        showProductsList();
 
     })
-
-    console.log(showProductsList(CurrentProductsArray));
 
 }
 
