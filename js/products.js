@@ -14,6 +14,29 @@ const MasVendidos = (ArrayProductos) => ArrayProductos.sort((a, b) => {
     }
 })
 
+const MasCaros = (ArrayProductos) => ArrayProductos.sort((a, b) => {
+    if (a.cost < b.cost) {
+        return 1;
+    }
+    else if (a.cost > b.cost) {
+        return -1;
+    }
+    else {
+        return 0;
+    }
+})
+
+const MasBaratos = (ArrayProductos) => ArrayProductos.sort((a, b) => {
+    if (a.cost > b.cost) {
+        return 1;
+    }
+    else if (a.cost < b.cost) {
+        return -1;
+    }
+    else {
+        return 0;
+    }
+})
 
 
 function showProductsList(ArrayProductos) {
@@ -114,7 +137,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     })
 
-}
+    document.getElementById("CarosaBaratos").addEventListener("click", function () {
+        MasCaros(CurrentProductsArray);
+        showProductsList(CurrentProductsArray);
+    })
+
+    document.getElementById("BaratosaCaros").addEventListener("click", function () {
+        MasBaratos(CurrentProductsArray);
+        showProductsList(CurrentProductsArray);
+    })
 
 
-);
+});
