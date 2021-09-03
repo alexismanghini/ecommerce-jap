@@ -72,7 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("FiltrarBtn").addEventListener("click", function () {
 
         MinProducto = document.getElementById("prodMinPrecio").value;
-        MaxProducto = document.getElementById("prodMinPrecio").value;
+        MaxProducto = document.getElementById("prodMaxPrecio").value;
 
 
         if ((MinProducto == undefined) && (MinProducto != "")) {
@@ -89,17 +89,23 @@ document.addEventListener("DOMContentLoaded", function () {
             MaxProducto == undefined;
         }
 
-        let FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => (product.cost >= MinProducto && product.cost <= MaxProducto));
+        let FilterProducts = CurrentProductsArray;
 
-        if (MaxProducto === undefined && MinProducto !== undefined) {
-            FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => product.cost >= MinProducto)
+        if ((MaxProducto === undefined) && (MinProducto !== undefined)) {
+            FilterProducts = FilterProducts.filter(product => product.cost >= MinProducto);
+        }
+        if ((MinProducto === undefined) && (MaxProducto !== undefined)) {
+            FilterProducts = FilterProducts.filter(product => product.cost <= MaxProducto);
+        } else {
+            FilterProducts = FilterProducts.filter(product => (product.cost >= MinProducto && product.cost <= MaxProducto))
         };
-        if (MinProducto === undefined && MaxProducto !== undefined) {
-            FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => product.cost <= MaxProducto)
-        };
+
+
         showProductsList(FilterProducts);
 
+
     })
+
 
     document.getElementById("masvendidos").addEventListener("click", function () {
 
