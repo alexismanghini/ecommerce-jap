@@ -14,15 +14,6 @@ const MasVendidos = (ArrayProductos) => ArrayProductos.sort((a, b) => {
     }
 })
 
-const FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => (product.cost >= MinProducto && product.cost <= MaxProducto));
-
-if (MaxProducto === undefined && MinProducto !== undefined) {
-    let FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => product.cost >= MinProducto)
-};
-if (MinProducto === undefined && MaxProducto !== undefined) {
-    let FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => product.cost <= MaxProducto)
-};
-
 
 
 function showProductsList(ArrayProductos) {
@@ -97,6 +88,15 @@ document.addEventListener("DOMContentLoaded", function () {
         else {
             MaxProducto == undefined;
         }
+
+        let FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => (product.cost >= MinProducto && product.cost <= MaxProducto));
+
+        if (MaxProducto === undefined && MinProducto !== undefined) {
+            FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => product.cost >= MinProducto)
+        };
+        if (MinProducto === undefined && MaxProducto !== undefined) {
+            FilterProducts = (ArrayProductos) => ArrayProductos.filter(product => product.cost <= MaxProducto)
+        };
         showProductsList(FilterProducts);
 
     })
