@@ -97,31 +97,16 @@ document.addEventListener("DOMContentLoaded", function () {
         MinProducto = document.getElementById("prodMinPrecio").value;
         MaxProducto = document.getElementById("prodMaxPrecio").value;
 
-
-        if ((MinProducto == undefined) && (MinProducto != "")) {
-            MinProducto == parseInt(MinProducto);
-        }
-        else {
-            MinProducto == undefined;
-        }
-
-        if ((MaxProducto == undefined) && (MaxProducto != "")) {
-            MaxProducto == parseInt(MaxProducto);
-        }
-        else {
-            MaxProducto == undefined;
-        }
-
         let FilterProducts = CurrentProductsArray;
 
-        if ((MaxProducto === undefined) && (MinProducto !== undefined)) {
-            FilterProducts = FilterProducts.filter(product => product.cost >= MinProducto);
+        if (MinProducto !== "") {
+            FilterProducts = FilterProducts.filter(product => product.cost >= parseInt(MinProducto));
         }
-        if ((MinProducto === undefined) && (MaxProducto !== undefined)) {
-            FilterProducts = FilterProducts.filter(product => product.cost <= MaxProducto);
-        } else {
-            FilterProducts = FilterProducts.filter(product => (product.cost >= MinProducto && product.cost <= MaxProducto))
-        };
+        if (MaxProducto !== "") {
+            FilterProducts = FilterProducts.filter(product => product.cost <= parseInt(MaxProducto))};
+        //} else {
+            //FilterProducts = FilterProducts.filter(product => (product.cost >= parseInt(MinProducto)) && product.cost <= parseInt(MaxProducto))
+        //};
 
 
         showProductsList(FilterProducts);
