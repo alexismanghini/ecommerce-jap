@@ -16,13 +16,14 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
+  <nav class="site-header sticky-top py-1 bg-dark" id="NavBar">
     <div class="container d-flex flex-column flex-md-row justify-content-between">
       <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
       <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
       <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
       <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
       <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+      <a class="Perfil" href="my-profile.html">Mi Perfil</a>
     </div>
   </nav>
   <div class="text-center p-4">
@@ -35,7 +36,7 @@
     <input type="number" placeholder="Precio máx" id="prodMaxPrecio" min="0">
     <input type="button"  id="FiltrarBtn" name= "filtrar" value="Filtrar">
     <input type="button"  id="LimpiarBtn" name= "limpiar" value="Limpiar">
-    <input type="radio" name="baratos" value="1" id="BaratosaCaros" checked>
+    <input type="radio" name="baratos" value="1" id="BaratosaCaros">
     <label>Más Baratos</label>
     <input type="radio" name="baratos" value="2" id="CarosaBaratos">
     <label>Más Caros</label>

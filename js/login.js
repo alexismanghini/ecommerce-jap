@@ -2,17 +2,26 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-var ingreso = function (user, pass) {
-    if (user.trim() === "" || pass.trim() === "") {
+function Ingreso() {
+
+    var usuario = document.getElementById("user").value;
+    var contrasenast = document.getElementById("pass").value;
+
+
+    if (usuario.trim() === "" || contrasenast.trim() === "") {
         alert("Deben rellenarse los campos");
     } else {
-        localStorage.setItem("usuario", user.trim());
-        localStorage.setItem("contrasena", pass.trim());
-        
+        localStorage.setItem("usuario", usuario.trim());
+        localStorage.setItem("contrasena", contrasenast.trim());
+
         location.href = "index.html"
+
     }
-  }
+}
 
 document.addEventListener("DOMContentLoaded", function (e) {
+    document.getElementsByClassName("Perfil").innerHTML += localStorage.getItem("usuario").value;
+
+
 
 });
