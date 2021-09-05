@@ -20,12 +20,5 @@ function ingreso() {
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    var nombreusuario = localStorage.getItem("usuario");
-
-    document.getElementsByClassName("Perfil").innerHTML
-
-
-
-
 
 });
