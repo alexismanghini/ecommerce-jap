@@ -2,6 +2,10 @@ var CurrentProductsArray = [];
 var MinProducto = undefined;
 var MaxProducto = undefined;
 
+function ShowProfileName() {
+    document.getElementById("Perfilproducts").innerHTML = localStorage.getItem("usuario");
+}
+
 const MasVendidos = (ArrayProductos) => ArrayProductos.sort((a, b) => {
     if (a.soldCount < b.soldCount) {
         return 1;

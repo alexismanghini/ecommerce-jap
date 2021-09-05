@@ -2,7 +2,7 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
-function Ingreso() {
+function ingreso() {
 
     var usuario = document.getElementById("user").value;
     var contrasenast = document.getElementById("pass").value;
@@ -20,8 +20,11 @@ function Ingreso() {
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    document.getElementsByClassName("Perfil");
-    localStorage.getItem("usuario");
+    var nombreusuario = localStorage.getItem("usuario");
+
+    document.getElementsByClassName("Perfil").innerHTML
+
+
 
 
 
