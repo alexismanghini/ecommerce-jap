@@ -20,7 +20,7 @@ function Ingreso() {
 }
 
 document.addEventListener("DOMContentLoaded", function (e) {
-    document.getElementsByClassName("Perfil").innerHTML += localStorage.getItem("usuario").value;
+    document.getElementsByClassName("Perfil").innerHTML += localStorage.getItem("usuario");
 
 
 
