@@ -6,6 +6,17 @@ function ShowProfileName() {
 }
 
 
-document.addEventListener("DOMContentLoaded", function(e){
+document.addEventListener("DOMContentLoaded", function (e) {
+
+
+    document.getElementById("EnviarComentario").addEventListener("click", function () {
+        if (document.getElementById("Comentario").value === "") {
+            alert("Debes realizar algún comentario para enviar");
+        }
+        if (document.getElementById("Comentario").value !== "") {
+            alert("Su comentario ha sido enviado!");
+            document.getElementById("Comentario").value = ""
+        }
+    })
 
 });
