@@ -75,10 +75,15 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             showProductComments(CurrentsCommentsArray);
         }
-        console.log(CurrentsCommentsArray);
     })
 
 
+    document.getElementById("1est").addEventListener("click", function() {
+        if (document.getElementById("1est").value === ""){
+            document.getElementById("1est").value === checked;
+        }
+    })
+    
     document.getElementById("EnviarComentario").addEventListener("click", function () {
         if (document.getElementById("Comentario").value === "") {
             alert("Debes realizar algún comentario para enviar");
