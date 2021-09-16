@@ -26,15 +26,47 @@
       <a id="Perfilproducts-info" href="my-profile.html"></a>
     </div>
   </nav>
-  <div>
-    <input type="text" id="Comentario" placeholder="Escribe un comentario...">
-    <input type="button" value="Enviar" id="EnviarComentario">
-    <span id="1est" class="fa fa-star"></span>
-    <span id="2est" class="fa fa-star"></span>
-    <span id="3est" class="fa fa-star"></span>
-    <span id="4est" class="fa fa-star"></span>
-    <span id="5est" class="fa fa-star"></span>
-  </div>
+  <main role="main">
+    <div class="text-center p-4">
+      <h1 id="ProductName"></h1>
+      <p id="ProductDescription"></p>
+      <div id="ProductDescImg"></div>
+    </div>
+    <h2><strong>Información del Producto:</strong></h2>
+    <dl>
+      <dt>Precio:</dt>
+      <dd>
+        <p id="ProductCost"></p>
+      </dd>
+      <dt>Moneda:</dt>
+      <dd>
+        <p id="ProductCurrency"></p>
+      </dd>
+      <dt>Categoría:</dt>
+      <dd>
+        <p id="ProductCategory"></p>
+      </dd>
+      <dt>Vendidos:</dt>
+      <dd>
+        <p id="ProductSoldCount"></p>
+      </dd>
+      <dt>Productos Relacionados:</dt>
+      <dd>
+        <p id="RelatedProducts"></p>
+      </dd>
+    </dl>
+    <div>
+      <div id="Comentarios">
+      </div>
+      <input type="text" id="Comentario" placeholder="Escribe un comentario...">
+      <input type="button" value="Enviar" id="EnviarComentario">
+      <span id="1est" class="fa fa-star"></span>
+      <span id="2est" class="fa fa-star"></span>
+      <span id="3est" class="fa fa-star"></span>
+      <span id="4est" class="fa fa-star"></span>
+      <span id="5est" class="fa fa-star"></span>
+    </div>
+  </main>
   <footer class="text-muted">
     <div class="container">
       <p class="float-right">
