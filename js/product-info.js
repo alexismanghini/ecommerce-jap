@@ -29,14 +29,10 @@ function showProductComments(ArrayComentarios) {
     for (let i = 0; i < ArrayComentarios.length; i++) {
         let comment = ArrayComentarios[i];
 
-        htmlContentToAppend = `<h3 class="text-center p-4">Comentarios</h3>
+        htmlContentToAppend = `
                                <div container-comments>
                                <p><strong>${comment.user}</strong> ${comment.description} </p>
-                               <span id="1est" class="fa fa-star"></span>
-                               <span id="2est" class="fa fa-star"></span>
-                               <span id="3est" class="fa fa-star"></span>
-                               <span id="4est" class="fa fa-star"></span>
-                               <span id="5est" class="fa fa-star"></span>
+                               <p>Score: ${comment.score} / 5</p>
                                <p>${comment.dateTime}</p>
                                </div>`
                                
