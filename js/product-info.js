@@ -29,9 +29,9 @@ function showProductComments(ArrayComentarios) {
     for (let i = 0; i < ArrayComentarios.length; i++) {
         let comment = ArrayComentarios[i];
 
-        htmlContentToAppend = `
+        htmlContentToAppend += `
                                <div container-comments>
-                               <p><strong>${comment.user}</strong> ${comment.description} </p>
+                               <p><strong>${comment.user}:</strong> ${comment.description} </p>
                                <p>Score: ${comment.score} / 5</p>
                                <p>${comment.dateTime}</p>
                                </div>`
@@ -69,12 +69,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     })
 
-    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (response) {
-        if (response.status === "ok") {
-            CurrentsCommentsArray = response.data;
+    getJSONData(PRODUCT_INFO_COMMENTS_URL).then(function (responseComm) {
+        if (responseComm.status === "ok") {
+            CurrentsCommentsArray = responseComm.data;
 
             showProductComments(CurrentsCommentsArray);
         }
+        console.log(CurrentsCommentsArray);
     })
 
 
