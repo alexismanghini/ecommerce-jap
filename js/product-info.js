@@ -35,7 +35,7 @@ function showProductComments(ArrayComentarios) {
                                <p>Score: ${comment.score} / 5</p>
                                <p>${comment.dateTime}</p>
                                </div>`
-                               
+
 
         document.getElementById("Comentarios").innerHTML = htmlContentToAppend;
     }
@@ -78,12 +78,48 @@ document.addEventListener("DOMContentLoaded", function (e) {
     })
 
 
-    document.getElementById("1est").addEventListener("click", function() {
-        if (document.getElementById("1est").value === ""){
-            document.getElementById("1est").value === checked;
-        }
-    })
-    
+    document.getElementById("1est").addEventListener("click", function () {
+        document.getElementById("1est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("2est").setAttribute("class", "fa fa-star");
+        document.getElementById("3est").setAttribute("class", "fa fa-star");
+        document.getElementById("4est").setAttribute("class", "fa fa-star");
+        document.getElementById("5est").setAttribute("class", "fa fa-star");
+    }
+    )
+    document.getElementById("2est").addEventListener("click", function () {
+        document.getElementById("1est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("2est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("3est").setAttribute("class", "fa fa-star");
+        document.getElementById("4est").setAttribute("class", "fa fa-star");
+        document.getElementById("5est").setAttribute("class", "fa fa-star");
+    }
+    )
+    document.getElementById("3est").addEventListener("click", function () {
+        document.getElementById("1est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("2est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("3est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("4est").setAttribute("class", "fa fa-star");
+        document.getElementById("5est").setAttribute("class", "fa fa-star");
+
+    }
+    )
+    document.getElementById("4est").addEventListener("click", function () {
+        document.getElementById("1est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("2est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("3est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("4est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("5est").setAttribute("class", "fa fa-star");
+    }
+    )
+    document.getElementById("5est").addEventListener("click", function () {
+        document.getElementById("1est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("2est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("3est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("4est").setAttribute("class", "fa fa-star checked");
+        document.getElementById("5est").setAttribute("class", "fa fa-star checked");
+    }
+    )
+
     document.getElementById("EnviarComentario").addEventListener("click", function () {
         if (document.getElementById("Comentario").value === "") {
             alert("Debes realizar algún comentario para enviar");
@@ -91,6 +127,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (document.getElementById("Comentario").value !== "") {
             alert("Su comentario ha sido enviado!");
             document.getElementById("Comentario").value = ""
+            document.getElementById("1est").setAttribute("class", "fa fa-star");
+            document.getElementById("2est").setAttribute("class", "fa fa-star");
+            document.getElementById("3est").setAttribute("class", "fa fa-star");
+            document.getElementById("4est").setAttribute("class", "fa fa-star");
+            document.getElementById("5est").setAttribute("class", "fa fa-star");
         }
     })
 
