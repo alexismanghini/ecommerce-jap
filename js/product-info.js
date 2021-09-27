@@ -38,7 +38,7 @@ function showProductComments(ArrayComentarios) {
 
 
         document.getElementById("Comentarios").innerHTML = htmlContentToAppend;
-    }
+    } 
 
 }
 
