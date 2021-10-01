@@ -1,10 +1,5 @@
 var category = {};
 
-function ShowProfileName() {
-    document.getElementById("Perfilcategory-info").innerHTML = localStorage.getItem("usuario");
-}
-
-
 function showImagesGallery(array) {
 
     let htmlContentToAppend = "";

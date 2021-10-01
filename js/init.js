@@ -20,13 +20,8 @@ var hideSpinner = function () {
 }
 
 function ShowProfileName() {
-  let htmlContentToAppend = "";
-  let navbarArray = document.getElementsByTagName("nav");
-
-  for (let i = 0; i < navbarArray.length; i++) {
-
-
-    htmlContentToAppend += `
+  const htmlContentToAppend = `
+    <div class="container d-flex flex-column flex-md-row justify-content-between">
   <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
         <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
@@ -38,13 +33,14 @@ function ShowProfileName() {
   <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
     <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
     <a class="dropdown-item" href="cart.html">Mi Carrito</a>
-    <a class="dropdown-item"  id="cerrarsesion" href="#">Cerrar Sesión</a>
+    <a class="dropdown-item"  name="cerrarsesion" href="#">Cerrar Sesión</a>
+    </div>
     </div>
     `
 
-    document.getElementById("NavegBar").innerHTML = htmlContentToAppend;
-  }
+  document.getElementsByTagName("nav")[0].innerHTML = htmlContentToAppend;
 }
+
 
 
 var getJSONData = function (url) {
@@ -79,7 +75,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
   ShowProfileName();
 
-  document.getElementById("cerrarsesion").addEventListener("click", function () {
+  document.getElementsByName("cerrarsesion")[0].addEventListener("click", function () {
     localStorage.removeItem("usuario");
     localStorage.removeItem("contrasena");
 
