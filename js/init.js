@@ -22,11 +22,16 @@ var hideSpinner = function () {
 function ShowProfileName() {
   let htmlContentToAppend = "";
   let navbarArray = document.getElementsByTagName("nav");
-  
+
   for (let i = 0; i < navbarArray.length; i++) {
 
 
-  htmlContentToAppend += `<div class="dropdown">
+    htmlContentToAppend += `
+  <a class="py-2 d-none d-md-inline-block" href="index.html">Inicio</a>
+        <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
+        <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
+        <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
+  <div class="dropdown">
     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     <a href="my-profile.html">${localStorage.getItem("usuario")}</a>
   </button>
@@ -37,8 +42,9 @@ function ShowProfileName() {
     </div>
     `
 
-  document.getElementById("NavegBar").innerHTML = htmlContentToAppend;
-}}
+    document.getElementById("NavegBar").innerHTML = htmlContentToAppend;
+  }
+}
 
 
 var getJSONData = function (url) {
