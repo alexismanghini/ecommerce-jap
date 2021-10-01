@@ -19,9 +19,26 @@ var hideSpinner = function () {
   document.getElementById("spinner-wrapper").style.display = "none";
 }
 
-function ShowProfileName(){
-  document.getElementById("Perfilindex").innerHTML = localStorage.getItem("usuario");
-}
+function ShowProfileName() {
+  let htmlContentToAppend = "";
+  let navbarArray = document.getElementsByTagName("nav");
+  
+  for (let i = 0; i < navbarArray.length; i++) {
+
+
+  htmlContentToAppend += `<div class="dropdown">
+    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <a href="my-profile.html">${localStorage.getItem("usuario")}</a>
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+    <a class="dropdown-item" href="cart.html">Mi Carrito</a>
+    <a class="dropdown-item"  id="cerrarsesion" href="#">Cerrar Sesión</a>
+    </div>
+    `
+
+  document.getElementById("NavegBar").innerHTML = htmlContentToAppend;
+}}
 
 
 var getJSONData = function (url) {
@@ -53,5 +70,13 @@ var getJSONData = function (url) {
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 document.addEventListener("DOMContentLoaded", function (e) {
+
   ShowProfileName();
+
+  document.getElementById("cerrarsesion").addEventListener("click", function () {
+    localStorage.removeItem("usuario");
+    localStorage.removeItem("contrasena");
+
+    location.href = "login.html"
+  })
 });

@@ -4,8 +4,8 @@
 
 function ingreso() {
 
-    var usuario = document.getElementById("user").value;
-    var contrasenast = document.getElementById("pass").value;
+    const usuario = document.getElementById("user").value;
+    const contrasenast = document.getElementById("pass").value;
 
 
     if (usuario.trim() === "" || contrasenast.trim() === "") {
