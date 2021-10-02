@@ -133,9 +133,11 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     })
 
-    async function RelatedProducts(url) {
+    async function getRelatedProducts(url) {
         let datosrelated = await getJSONData(url);
-        console.log("lotengoono", datosrelated.data);
+        console.log("producto",product.relatedProducts);
+        console.log("idsarray",datosrelated.data);
+        console.log("valor id", product.relatedProducts[0])
     }
-    RelatedProducts(PRODUCTS_URL);
+    getRelatedProducts(PRODUCTS_URL);
 });
