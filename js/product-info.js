@@ -36,7 +36,7 @@ function showProductComments(ArrayComentarios) {
 
 
         document.getElementById("Comentarios").innerHTML = htmlContentToAppend;
-    } 
+    }
 
 }
 
@@ -133,4 +133,9 @@ document.addEventListener("DOMContentLoaded", function (e) {
         }
     })
 
+    async function RelatedProducts(url) {
+        let datosrelated = await getJSONData(url);
+        console.log("lotengoono", datosrelated.data);
+    }
+    RelatedProducts(PRODUCTS_URL);
 });
