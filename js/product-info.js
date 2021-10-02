@@ -28,7 +28,7 @@ function showProductComments(ArrayComentarios) {
         let comment = ArrayComentarios[i];
 
         htmlContentToAppend += `
-                               <div container-comments>
+                               <div container-comments class="text-center p-4">
                                <p><strong>${comment.user}:</strong> ${comment.description} </p>
                                <p>Score: ${comment.score} / 5</p>
                                <p>${comment.dateTime}</p>
@@ -135,9 +135,33 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     async function getRelatedProducts(url) {
         let datosrelated = await getJSONData(url);
-        console.log("producto",product.relatedProducts);
-        console.log("idsarray",datosrelated.data);
-        console.log("valor id", product.relatedProducts[0])
+        let htmlContentToAppend ="";
+
+
+        for (product of product.relatedProducts) {
+            let relatedproduct = datosrelated.data[product];
+            console.log(datosrelated.data)
+
+            htmlContentToAppend += `
+            <a href="product-info.html" class="list-group-item list-group-item-action">
+            <div class="row">
+                <div class="col-3">
+                    <img src="` + relatedproduct.imgSrc + `" alt="" class="img-thumbnail">
+                </div>
+                <div class="col">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h4 class="mb-1">`+ relatedproduct.name + `</h4>
+                        <small class="text-muted">` + relatedproduct.soldCount + ` vendidos</small>
+                    </div>
+                    <p class="mb-1">` + relatedproduct.description + `</p>
+                    <p class="mb-1">` + relatedproduct.cost + relatedproduct.currency + `</p>
+                </div>
+            </div>
+        </a>
+            `
+            document.getElementById("RelatedProducts").innerHTML = htmlContentToAppend;
+
+        }
     }
     getRelatedProducts(PRODUCTS_URL);
 });
