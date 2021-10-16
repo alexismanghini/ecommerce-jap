@@ -135,6 +135,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
     async function getRelatedProducts(url) {
         let datosrelated = await getJSONData(url);
+        console.log(datosrelated)
         let htmlContentToAppend ="";
 
 

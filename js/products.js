@@ -75,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
     getJSONData(PRODUCTS_URL).then(function (responseProd) {
         if (responseProd.status === "ok") {
             CurrentProductsArray = responseProd.data;
+            console.log(CurrentProductsArray);
 
             showProductsList(CurrentProductsArray);
         }
