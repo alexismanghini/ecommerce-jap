@@ -37,13 +37,13 @@
   <nav class="site-header sticky-top py-1 bg-dark">
   </nav>
   <h1>Mi Carrito</h1>
-  <form>
+  <form name="carrito" onsubmit="return ValidarCarrito(event);">
     <div class="container">
       <div id="CartProducts">
 
       </div>
       <label for ="productTotal">Subtotal ($UYU): </label>
-      <br>Costo de Envío:<br>
+      <br>Costo de Envío(Obligatorio):<br>
       <label for="standardsell">Estándar(3%)</label>
       <input type="radio" id="standardsell" name="selloption">
       <label for="premiumsell">Premium(7%)</label>
@@ -51,12 +51,12 @@
       <label for="goldsell">Gold(13%)</label>
       <input type="radio" id="goldsell" name="selloption">
       <br><p id="totalcosto">Costo Total: ($UYU):</p><br>
-      <p>Forma de Pago:</p>
+      <p>Forma de Pago(Obligatorio):</p>
       <label for="creditcard">Tarjeta de Crédito</label>
       <input type="radio" id="creditcard" name="formapago">
       <label for="banktransfer">Transferencia Bancaria</label>
       <input type="radio" id="banktransfer" name="formapago">
-      <br><input type="submit" id="submitcompra"  class="btn btn-success" value="Confirmar Compra"><br>
+      <br><input type="submit" class="btn btn-success" value="Confirmar Compra"><br>
 
 
 

@@ -6,6 +6,17 @@ const tarjeta = document.getElementById("creditcard")
 const transf = document.getElementById("banktransfer")
 
 
+function ValidarCarrito(e) {
+    e.preventDefault();
+    if ((standard.checked || gold.checked || premium.checked) && (tarjeta.checked || transf.checked )){
+        alert("Su compra ha sido realizada")
+    }
+    else {
+        alert("Debe rellenar los campos obligatorios")
+    }
+}
+
+
 document.addEventListener("DOMContentLoaded", function (e) {
 
     async function getCartArticles(url) {
@@ -45,15 +56,4 @@ document.addEventListener("DOMContentLoaded", function (e) {
     })
     console.log(livecountproduct);
 
-
-
-    document.getElementById("submitcompra").addEventListener("onsubmit", function () {
-        e.preventDefault();
-        if ((standard !== checked && gold !== checked && premium !== checked) || (tarjeta !== checked && transf!== checked )){
-            alert("BLABLA")
-        }
-        else {
-            (alert("pudiste"))
-        }
-    })
 });
