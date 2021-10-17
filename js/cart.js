@@ -1,6 +1,9 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+const standard = document.getElementById("standardsell");
+const gold = document.getElementById("goldsell")
+const premium = document.getElementById("premiumsell")
+
+const tarjeta = document.getElementById("creditcard")
+const transf = document.getElementById("banktransfer")
 
 
 document.addEventListener("DOMContentLoaded", function (e) {
@@ -44,8 +47,13 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
 
-    document.getElementById("submitcompra").addEventListener("click", function () {
+    document.getElementById("submitcompra").addEventListener("onsubmit", function () {
         e.preventDefault();
-
+        if ((standard !== checked && gold !== checked && premium !== checked) || (tarjeta !== checked && transf!== checked )){
+            alert("BLABLA")
+        }
+        else {
+            (alert("pudiste"))
+        }
     })
 });
