@@ -2,11 +2,13 @@
 //que el documento se encuentra cargado, es decir, se encuentran todos los
 //elementos HTML presentes.
 
+
 document.addEventListener("DOMContentLoaded", function (e) {
 
     async function getCartArticles(url) {
         let cartarticles = await getJSONData(url);
         let htmlContentToAppend = "";
+        console.log("productos", cartarticles);
 
         cartarticles.data.articles.forEach((onecartarticle) => {
             let cartproduct = onecartarticle
@@ -15,19 +17,14 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
             htmlContentToAppend += `
 
-            <div class="row">
-                <div class="col-3">
-                    <img src="${cartproduct.src}" alt="" class="img-thumbnail">
-                </div>
-                <div class="col">
-                    <div class="d-flex w-100 justify-content-between">
-                        <h4 class="mb-1">${cartproduct.name}</h4>
-                        <small class="text-muted">${cartproduct.count}</small>
-                    </div>
-                    <p class="mb-1">${cartproduct.unitCost} ${cartproduct.currency}</p>
-                </div>
+            <div class="card" style="width: 18rem;">
+               <div class="card-body">
+               <h5 class="card-title">${cartproduct.name}</h5>
+               <p class="card-text">${cartproduct.currency} ${cartproduct.unitCost} x Unidad</p>
+               Cantidad <input type="number" min="1" class="livecount" value="${cartproduct.count}">
+               <p class="card-text" id="subtotalprod"> Subtotal Producto($UYU): ${cartproduct.count * cartproduct.unitCost}</p>
+               </div>
             </div>
-        </a>
         `
         })
         document.getElementById("CartProducts").innerHTML = htmlContentToAppend;
@@ -35,4 +32,20 @@ document.addEventListener("DOMContentLoaded", function (e) {
 
 
     getCartArticles(CART_INFO_URL2P);
+
+    document.getElementsByClassName("livecount").addEventListener("change", function () {
+
+        let subtotalproducto = document.getElementById("subtotalprod")
+        console.log("subtotal", subtotalproducto)
+
+        subtotalproducto = cartproduct.unitCost * cartproduct.count;
+    })
+    console.log(livecountproduct);
+
+
+
+    document.getElementById("submitcompra").addEventListener("click", function () {
+        e.preventDefault();
+
+    })
 });
