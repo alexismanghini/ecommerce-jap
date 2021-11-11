@@ -49,7 +49,6 @@ function showProductsList(ArrayProductos) {
 
         htmlContentToAppend += `
         <div class="container">
-          <div class="row">
             <div class="col-md-4">
               <a href="product-info.html" class="card mb-4 shadow-sm custom-card">
                         <img src="` + product.imgSrc + `" alt="` + product.description + `class="card-img-top">
@@ -57,10 +56,9 @@ function showProductsList(ArrayProductos) {
                             <div class="card-body">
                             <small class="text-muted">` + product.soldCount + ` vendidos</small>
                             <p>` + product.cost + product.currency + `</p>
-                            </div>
+            </div>
                 </a>
             </div>
-           </div>
             `
     }
     document.getElementById("products").innerHTML = htmlContentToAppend;
