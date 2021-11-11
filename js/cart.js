@@ -1,9 +1,9 @@
 const standard = document.getElementById("standardsell");
-const gold = document.getElementById("goldsell")
-const premium = document.getElementById("premiumsell")
+const gold = document.getElementById("goldsell");
+const premium = document.getElementById("premiumsell");
 
-const tarjeta = document.getElementById("creditcard")
-const transf = document.getElementById("banktransfer")
+const tarjeta = document.getElementById("creditcard");
+const transf = document.getElementById("banktransfer");
 
 function ValidarCarrito(e) {
     e.preventDefault();
