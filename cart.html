@@ -52,11 +52,31 @@
       <label for="goldsell">Gold(13%)</label>
       <input type="radio" id="goldsell" name="selloption">
       <br><p id="totalcosto">Costo Total: ($UYU):</p><br>
-      <p>Forma de Pago(Obligatorio):</p>
-      <label for="creditcard">Tarjeta de Crédito</label>
-      <input type="radio" id="creditcard" name="formapago">
-      <label for="banktransfer">Transferencia Bancaria</label>
-      <input type="radio" id="banktransfer" name="formapago">
+      <button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#FormaPagoModal" id="FPButton">
+        Forma de Pago
+      </button>
+      <div class="modal fade" id="FormaPagoModal" data-backdrop="static" tabindex="-1" aria-labelledby="modal" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">Forma de Pago</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <label for="creditcard">Tarjeta de Crédito</label>
+              <input type="radio" id="creditcard" name="formapago">
+              <label for="banktransfer">Transferencia Bancaria</label>
+              <input type="radio" id="banktransfer" name="formapago">
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-primary" data-dismiss="modal">Confirmar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <br><input type="submit" class="btn btn-success" value="Confirmar Compra"><br>
 
 
