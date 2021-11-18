@@ -52,6 +52,12 @@ async function CargarCartArticles(url) {
     })
     document.getElementById("CartProducts").innerHTML = htmlContentToAppend;
     ReloadCart();
+
+    document.querySelectorAll('.livecount').forEach((item) => {
+        item.addEventListener('change',(e) => {
+            ReloadCart();
+        });
+    });
 }
 
 
