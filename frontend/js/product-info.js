@@ -10,13 +10,30 @@ function showProductImagesGallery(array) {
     for (let i = 0; i < array.length; i++) {
         let imageSrc = array[i];
 
-        htmlContentToAppend += `
-            <div class="d-block mb-6 h-100">
-                <img class="img-fluid img-thumbnail" src="` + imageSrc + `" alt="">
-            </div>
-        `
+        if (i === 0) {
 
-        document.getElementById("ProductDescImg").innerHTML = htmlContentToAppend;
+            htmlContentToAppend += `
+                <div class="carousel-item active">
+                <img class="d-block w-100" src="` + imageSrc + `" alt="...">
+                </div>
+                <a class="carousel-control-prev" href="#carouselProducts" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselProducts" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+                </a>
+                `
+
+        } else {
+            htmlContentToAppend += `
+                <div class="carousel-item">
+                <img class="d-block w-100" src="` + imageSrc + `" alt="...">
+                </div>
+                `
+        }
+        document.getElementById("carouselProductsInner").innerHTML = htmlContentToAppend;
     }
 }
 
@@ -136,7 +153,7 @@ document.addEventListener("DOMContentLoaded", function (e) {
     async function getRelatedProducts(url) {
         let datosrelated = await getJSONData(url);
         console.log(datosrelated)
-        let htmlContentToAppend ="";
+        let htmlContentToAppend = "";
 
 
         for (product of product.relatedProducts) {

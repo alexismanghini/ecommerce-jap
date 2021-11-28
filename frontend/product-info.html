@@ -23,47 +23,57 @@
     <div class="text-center p-4">
       <h1 id="ProductName"></h1>
       <p id="ProductDescription"></p>
-      <div id="ProductDescImg"></div>
-    </div>
-    <h2 class="text-center p-4"><strong>Información del Producto:</strong></h2>
-    <dl class="text-center p-4">
-      <dt>Precio:</dt>
-      <dd>
-        <p id="ProductCost"></p>
-      </dd>
-      <dt>Moneda:</dt>
-      <dd>
-        <p id="ProductCurrency"></p>
-      </dd>
-      <dt>Categoría:</dt>
-      <dd>
-        <p id="ProductCategory"></p>
-      </dd>
-      <dt>Vendidos:</dt>
-      <dd>
-        <p id="ProductSoldCount"></p>
-      </dd>
-      <dt>Productos Relacionados:</dt>
-      <dd>
-        <p id="RelatedProducts"></p>
-      </dd>
-    </dl>
-    <div>
-      <h3 class="text-center p-4">Comentarios</h3>
-      <div id="Comentarios">
+
+
+
+      <h2 class="text-center p-4"><strong>Información del Producto:</strong></h2>
+      <dl class="text-center p-4">
+        <dt>Imágenes Descriptivas</dt>
+        <dd>
+          <div id="ProductDescImg"></div>
+          <div class="carousel slide" data-ride="carousel" id="carouselProducts">
+            <div class="carousel-inner" id="carouselProductsInner">
+            </div>
+          </div>
+        </dd>
+        <dt>Precio:</dt>
+        <dd>
+          <p id="ProductCost"></p>
+        </dd>
+        <dt>Moneda:</dt>
+        <dd>
+          <p id="ProductCurrency"></p>
+        </dd>
+        <dt>Categoría:</dt>
+        <dd>
+          <p id="ProductCategory"></p>
+        </dd>
+        <dt>Vendidos:</dt>
+        <dd>
+          <p id="ProductSoldCount"></p>
+        </dd>
+        <dt>Productos Relacionados:</dt>
+        <dd>
+          <p id="RelatedProducts"></p>
+        </dd>
+      </dl>
+      <div>
+        <h3 class="text-center p-4">Comentarios</h3>
+        <div id="Comentarios">
+        </div>
+        <div class="text-center p-4">
+          <input type="text" id="Comentario" placeholder="Escribe un comentario...">
+          <input type="button" value="Enviar" id="EnviarComentario">
+          <span id="1est" class="fa fa-star"></span>
+          <span id="2est" class="fa fa-star"></span>
+          <span id="3est" class="fa fa-star"></span>
+          <span id="4est" class="fa fa-star"></span>
+          <span id="5est" class="fa fa-star"></span>
+        </div>
       </div>
-      <div class="text-center p-4">
-      <input type="text" id="Comentario" placeholder="Escribe un comentario...">
-      <input type="button" value="Enviar" id="EnviarComentario">
-      <span id="1est" class="fa fa-star"></span>
-      <span id="2est" class="fa fa-star"></span>
-      <span id="3est" class="fa fa-star"></span>
-      <span id="4est" class="fa fa-star"></span>
-      <span id="5est" class="fa fa-star"></span>
-    </div>
-    </div>
-    <h4 class="text-center p-4">Tal vez te interese..</h4>
-    <div id="ProductosRelacionados"><div>
+      <h4 class="text-center p-4">Tal vez te interese..</h4>
+      <div id="ProductosRelacionados">
+        <div>
   </main>
   <footer class="text-muted">
     <div class="container">
